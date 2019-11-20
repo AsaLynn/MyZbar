@@ -49,22 +49,22 @@ public final class PermissionUtils {
     private List<String> mPermissionsDeniedForever;
     private static Context mApp;
 
-    /**
-     * Return the permissions used in application.
-     *
-     * @return the permissions used in application
-     */
+//    /**
+//     * Return the permissions used in application.
+//     *
+//     * @return the permissions used in application
+//     */
     public static List<String> getPermissions() {
         return getPermissions(mApp.getPackageName());
     }
 
 
-    /**
-     * Return the permissions used in application.
-     *
-     * @param packageName The name of the package.
-     * @return the permissions used in application
-     */
+//    /**
+//     * Return the permissions used in application.
+//     *
+//     * @param packageName The name of the package.
+//     * @return the permissions used in application
+//     */
     public static List<String> getPermissions(final String packageName) {
         PackageManager pm = mApp.getPackageManager();
         try {
@@ -78,12 +78,12 @@ public final class PermissionUtils {
         }
     }
 
-    /**
-     * Return whether <em>you</em> have granted the permissions.
-     *
-     * @param permissions The permissions.
-     * @return {@code true}: yes<br>{@code false}: no
-     */
+//    /**
+//     * Return whether <em>you</em> have granted the permissions.
+//     *
+//     * @param permissions The permissions.
+//     * @return {@code true}: yes<br>{@code false}: no
+//     */
     public static boolean isGranted(final String... permissions) {
         for (String permission : permissions) {
             if (!isGranted(permission)) {
@@ -99,21 +99,21 @@ public final class PermissionUtils {
                 == ContextCompat.checkSelfPermission(mApp, permission);
     }
 
-    /**
-     * Launch the application's details settings.
-     */
+//    /**
+//     * Launch the application's details settings.
+//     */
     public static void launchAppDetailsSettings() {
         Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
         intent.setData(Uri.parse("package:" + mApp.getPackageName()));
         mApp.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
     }
 
-    /**
-     * Set the permissions.
-     *
-     * @param permissions The permissions.
-     * @return the single {@link PermissionUtils} instance
-     */
+//    /**
+//     * Set the permissions.
+//     *
+//     * @param permissions The permissions.
+//     * @return the single {@link PermissionUtils} instance
+//     */
     public static PermissionUtils permission(Context mContext, @PermissionConstants.Permission final String...
             permissions
     ) {
@@ -134,53 +134,53 @@ public final class PermissionUtils {
         sInstance = this;
     }
 
-    /**
-     * Set rationale listener.
-     *
-     * @param listener The rationale listener.
-     * @return the single {@link PermissionUtils} instance
-     */
+//    /**
+//     * Set rationale listener.
+//     *
+//     * @param listener The rationale listener.
+//     * @return the single {@link PermissionUtils} instance
+//     */
     public PermissionUtils rationale(final OnRationaleListener listener) {
         mOnRationaleListener = listener;
         return this;
     }
 
-    /**
-     * Set the simple call back.
-     *
-     * @param callback the simple call back
-     * @return the single {@link PermissionUtils} instance
-     */
+//    /**
+//     * Set the simple call back.
+//     *
+//     * @param callback the simple call back
+//     * @return the single {@link PermissionUtils} instance
+//     */
     public PermissionUtils callback(final SimpleCallback callback) {
         mSimpleCallback = callback;
         return this;
     }
 
-    /**
-     * Set the full call back.
-     *
-     * @param callback the full call back
-     * @return the single {@link PermissionUtils} instance
-     */
+//    /**
+//     * Set the full call back.
+//     *
+//     * @param callback the full call back
+//     * @return the single {@link PermissionUtils} instance
+//     */
     public PermissionUtils callback(final FullCallback callback) {
         mFullCallback = callback;
         return this;
     }
 
-    /**
-     * Set the theme callback.
-     *
-     * @param callback The theme callback.
-     * @return the single {@link PermissionUtils} instance
-     */
+//    /**
+//     * Set the theme callback.
+//     *
+//     * @param callback The theme callback.
+//     * @return the single {@link PermissionUtils} instance
+//     */
     public PermissionUtils theme(final ThemeCallback callback) {
         mThemeCallback = callback;
         return this;
     }
 
-    /**
-     * Start request.
-     */
+//    /**
+//     * Start request.
+//     */
     public void request() {
         mPermissionsGranted = new ArrayList<>();
         mPermissionsRequest = new ArrayList<>();

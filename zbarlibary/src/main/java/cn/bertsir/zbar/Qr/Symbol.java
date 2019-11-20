@@ -208,9 +208,9 @@ public class Symbol {
      */
     private native void destroy(long peer);
 
-    /**
-     * Retrieve type of decoded symbol.
-     */
+//    /**
+//     * Retrieve type of decoded symbol.
+//     */
     public int getType() {
         if (type == 0)
             type = getType(peer);
@@ -219,48 +219,48 @@ public class Symbol {
 
     private native int getType(long peer);
 
-    /**
-     * Retrieve symbology boolean configs settings used during decode.
-     */
+//    /**
+//     * Retrieve symbology boolean configs settings used during decode.
+//     */
     public native int getConfigMask();
 
-    /**
-     * Retrieve symbology characteristics detected during decode.
-     */
+//    /**
+//     * Retrieve symbology characteristics detected during decode.
+//     */
     public native int getModifierMask();
 
-    /**
-     * Retrieve data decoded from symbol as a String.
-     */
+//    /**
+//     * Retrieve data decoded from symbol as a String.
+//     */
     public native String getData();
 
-    /**
-     * Retrieve raw data bytes decoded from symbol.
-     */
+//    /**
+//     * Retrieve raw data bytes decoded from symbol.
+//     */
     public native byte[] getDataBytes();
 
-    /**
-     * Retrieve a symbol confidence metric.  Quality is an unscaled,
-     * relative quantity: larger values are better than smaller
-     * values, where "large" and "small" are application dependent.
-     */
+//    /**
+//     * Retrieve a symbol confidence metric.  Quality is an unscaled,
+//     * relative quantity: larger values are better than smaller
+//     * values, where "large" and "small" are application dependent.
+//     */
     public native int getQuality();
 
-    /**
-     * Retrieve current cache count.  When the cache is enabled for
-     * the image_scanner this provides inter-frame reliability and
-     * redundancy information for video streams.
-     *
-     * @returns < 0 if symbol is still uncertain
-     * @returns 0 if symbol is newly verified
-     * @returns > 0 for duplicate symbols
-     */
+//    /**
+//     * Retrieve current cache count.  When the cache is enabled for
+//     * the image_scanner this provides inter-frame reliability and
+//     * redundancy information for video streams.
+//     *
+//     * @returns < 0 if symbol is still uncertain
+//     * @returns 0 if symbol is newly verified
+//     * @returns > 0 for duplicate symbols
+//     */
     public native int getCount();
 
-    /**
-     * Retrieve an approximate, axis-aligned bounding box for the
-     * symbol.
-     */
+//    /**
+//     * Retrieve an approximate, axis-aligned bounding box for the
+//     * symbol.
+//     */
     public int[] getBounds() {
         int n = getLocationSize(peer);
         if (n <= 0)
@@ -301,15 +301,15 @@ public class Symbol {
         return (p);
     }
 
-    /**
-     * Retrieve general axis-aligned, orientation of decoded
-     * symbol.
-     */
+//    /**
+//     * Retrieve general axis-aligned, orientation of decoded
+//     * symbol.
+//     */
     public native int getOrientation();
 
-    /**
-     * Retrieve components of a composite result.
-     */
+//    /**
+//     * Retrieve components of a composite result.
+//     */
     public SymbolSet getComponents() {
         return (new SymbolSet(getComponents(peer)));
     }
