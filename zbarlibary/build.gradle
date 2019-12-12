@@ -8,7 +8,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 133
-        versionName "1.3.3"
+        versionName "1.0.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -41,7 +41,7 @@ def siteUrl = 'https://github.com/zhang721688/MyZbar'//TODO:修改仓库MyZbar
 def gitUrl = 'https://github.com/zhang721688/MyZbar.git'//TODO:修改仓库MyZbar
 def libName = "zbarlibary"//TODO:修改依赖zbarlibary
 group = "cn.bertsir.zbar"//TODO:修改包名cn.bertsir.zbar
-version = "1.0.0"
+version = "1.0.1"
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'

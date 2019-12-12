@@ -29,6 +29,7 @@ import android.widget.Toast;
 import com.soundcloud.android.crop.Crop;
 
 import java.io.File;
+import java.lang.ref.WeakReference;
 
 import cn.bertsir.zbar.Qr.Symbol;
 import cn.bertsir.zbar.utils.GetPathFromUri;
@@ -57,7 +58,7 @@ public class QRActivity extends Activity implements View.OnClickListener {
     private Uri uricropFile;
     private String cropTempPath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "cropQr.jpg";
     private VerticalSeekBar vsb_zoom;
-
+    private static WeakReference<QRActivity> mWeakQRActivity = null;
 
     private float oldDist = 1f;
 
@@ -69,7 +70,7 @@ public class QRActivity extends Activity implements View.OnClickListener {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
-
+        mWeakQRActivity = new WeakReference<>(this);
         options = (QrConfig) getIntent().getExtras().get(QrConfig.EXTRA_THIS_CONFIG);
 
         switch (options.getSCREEN_ORIENTATION()) {
@@ -425,5 +426,12 @@ public class QRActivity extends Activity implements View.OnClickListener {
         return super.onTouchEvent(event);
     }
 
-
+    /**
+     * 在别的Activity关闭自己的方法
+     */
+    public static void finishSelf() {
+        if (mWeakQRActivity != null && mWeakQRActivity.get() != null) {
+            mWeakQRActivity.get().finish();
+        }
+    }
 }
