@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="cn.bertsir.zbar"
+          package="com.zxn.zbar"
     >
 
     <uses-permission android:name="android.permission.CAMERA"/>
@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         >
         <provider
-            android:name=".utils.QrFileProvider"
+            android:name="com.zxn.zbar.utils.QrFileProvider"
             android:authorities="${applicationId}.zbar.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
@@ -28,10 +28,10 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/qr_file_paths"/>
         </provider>
-        <activity android:name="cn.bertsir.zbar.QRActivity"
+        <activity android:name="com.zxn.zbar.QRActivity"
             />
         <activity
-            android:name=".utils.PermissionUtils$PermissionActivity"
+            android:name="com.zxn.zbar.utils.PermissionUtils$PermissionActivity"
             android:theme="@style/ActivityTranslucent"
             />
         <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
