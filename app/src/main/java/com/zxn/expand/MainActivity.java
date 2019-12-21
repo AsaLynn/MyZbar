@@ -1,26 +1,50 @@
 package com.zxn.expand;
 
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cn.bertsir.zbar.QrConfig;
 import cn.bertsir.zbar.QrManager;
+import cn.bertsir.zbar.utils.QRUtils;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    @BindView(R.id.iv_code)
+    ImageView ivCode;
+    @BindView(R.id.tv_code_content)
+    TextView tvCodeContent;
+    private String TAG = this.getClass().getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         findViewById(R.id.tv_title).setOnClickListener(this);
+        findViewById(R.id.tv2).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        start();
+        if (v.getId() == R.id.tv_title) {
+            start();
+        } else if (v.getId() == R.id.tv2) {
+            try {
+                String code = QRUtils.getInstance().decodeQRcode(ivCode);
+                Log.i(TAG, "onClick: " + code);
+                tvCodeContent.setText(code);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void start() {
