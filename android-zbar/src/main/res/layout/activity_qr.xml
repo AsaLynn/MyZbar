@@ -34,7 +34,7 @@
         android:layout_marginRight="30dp"
         android:orientation="vertical">
 
-        <com.zxn.zbar.view.VerticalSeekBar
+        <cn.bertsir.zbar.view.VerticalSeekBar
             android:id="@+id/vsb_zoom"
             android:layout_width="wrap_content"
             android:layout_height="200dp"
@@ -42,12 +42,12 @@
 
     </LinearLayout>
 
-    <com.zxn.zbar.CameraPreview
+    <cn.bertsir.zbar.CameraPreview
         android:id="@+id/cp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.zxn.zbar.view.ScanView
+    <cn.bertsir.zbar.view.ScanView
         android:id="@+id/sv"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

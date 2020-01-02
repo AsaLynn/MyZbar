@@ -9,11 +9,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import cn.bertsir.zbar.QrConfig;
+import cn.bertsir.zbar.QrManager;
+import cn.bertsir.zbar.utils.QRUtils;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import com.zxn.zbar.QrConfig;
-import com.zxn.zbar.QrManager;
-import com.zxn.zbar.utils.QRUtils;
+
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
