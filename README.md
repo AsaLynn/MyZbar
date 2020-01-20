@@ -5,7 +5,7 @@ zbar扫描快，zxing可以生成和识别本地，So,我就把他们结合在�
 # 引入
 ```
 //implementation 'cn.bertsir.zbar:zbarlibary:1.0.1'
-implementation 'com.zxn.zbar:android-zbar:1.0.3'
+implementation 'com.zxn.zbar:android-zbar:1.0.4'
 
 ```
 ### 使用方法
